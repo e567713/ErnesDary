@@ -10,7 +10,7 @@ app.use(methodOverride());
 
 var router = express.Router();
 
-router.get('/hola', function(req, res) {
+router.get('/', function(req, res) {
    res.send("Hola WANCHING!");
 });
 
