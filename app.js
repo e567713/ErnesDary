@@ -1,21 +1,25 @@
+
 var express = require("express"),
     app = express(),
     bodyParser  = require("body-parser"),
     methodOverride = require("method-override");
     mongoose = require('mongoose');
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(methodOverride());
+//function run(){
+    console.log("PENE");
+    app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(bodyParser.json());
+    app.use(methodOverride());
 
-var router = express.Router();
+    var router = express.Router();
 
-router.get('/hola', function(req, res) {
-   res.send("Hola WANCHING!");
-});
+    router.get('/hola', function(req, res) {
+       res.send("Hola WANCHING!");
+    });
 
-app.use(router);
+    app.use(router);
 
-app.listen(80, function() {
-  console.log("Node server running on http://localhost:3000");
-});
+    app.listen(80, function() {
+      console.log("Node server running on http://localhost:3000");
+    });
+//}
