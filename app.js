@@ -10,12 +10,12 @@ app.use(methodOverride());
 
 var router = express.Router();
 
-router.get('/', function(req, res) {
+router.get('/hola', function(req, res) {
    res.send("Hola WANCHING!");
 });
 
 app.use(router);
 
-app.listen(3000, function() {
+app.listen(80, function() {
   console.log("Node server running on http://localhost:3000");
 });
