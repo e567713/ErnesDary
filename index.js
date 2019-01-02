@@ -3,7 +3,7 @@ const path = require('path')
 const PORT = process.env.PORT || 5000
 
 const job = require(`./app.js`);
-job.run;
+//job.run;
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
