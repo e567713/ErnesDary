@@ -65,7 +65,7 @@ var express = require("express"),
         }else {
         console.log('Connected to Database. ');
         }
-        app.listen(5000, function() {
-          console.log("Node server running on http://localhost:5000");
+        app.listen(80, function() {
+          console.log("Node server running on http://localhost:80");
         });
       });
