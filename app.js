@@ -1,10 +1,6 @@
 const psn = require("./models/psn");
-var server = require('http').createServer();
-var port = process.env.PORT || 3000;
 
-server.listen(port, function() {
-  console.log('Listening on ' + port);
-});
+
 
 var psn_instance = new psn(
 {
@@ -41,6 +37,15 @@ var express = require("express"),
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
     app.use(methodOverride());
+
+
+    var server = require('http').createServer(app);
+    var port = process.env.PORT || 3000;
+
+    server.listen(port, function() {
+      console.log('LO QUE PUSE YO  ' + port);
+    });
+
 
 
 
