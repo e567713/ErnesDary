@@ -1,14 +1,14 @@
 var mongoose = require('mongoose');
 var psn  = mongoose.model('psn');
 
+
 //GET - Return all psns in the DB
 exports.findAllpsns = function(req, res) {
-	psn.find(function(err, psns) {
-    if(err) res.send(500, err.message);
-
-    console.log('GET /api/psns')
-		res.status(200).jsonp(psns);
-	});
+console.log('GET');
+	psn.find(function(err, psn_instances) {
+        if(err) res.send(500, err.message);
+        res.status(200).jsonp(psn_instances);
+        });
 };
 
 //GET - Return a psn with specified ID
@@ -25,9 +25,8 @@ exports.findById = function(req, res) {
 //POST - Insert a new psn in the DB
 exports.addpsn = function(req, res) {
 	console.log('POST');
-	console.log(req.body);
-
-	var psn = new psn({
+	var psn_instance = new psn(
+	{
 	    nombre:   req.body.nombre,
         usd_valor:     req.body.usd_valor,
         fecha_comprado:  req.body.fecha_comprado,
@@ -40,10 +39,10 @@ exports.addpsn = function(req, res) {
         valido:   req.body.valido,
         comprador:    req.body.comprador
 	});
-
-	psn.save(function(err, psn) {
+console.log(psn_instance);
+	psn_instance.save(function(err, psn) {
 		if(err) return res.status(500).send( err.message);
-    res.status(200).jsonp(psn);
+    res.status(200).jsonp(psn_instance);
 	});
 };
 

@@ -7,7 +7,8 @@ const psn = require("./models/psn"),
     server = require('http').createServer(app),
     port = process.env.PORT || 3000;
 
-app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended:true}));
 app.use(bodyParser.json());
 app.use(methodOverride());
 
@@ -24,14 +25,19 @@ psns.get('/', function(req, res) {
     res.send("Hola WACHING!");
 });
 
-psns.route('/psns')
-    .get(psnsCtrl.findAllpsns);
-//      .post(psnsCtrl.addpsns);
+psns.get('/psns',function(req, res){
+    psnsCtrl.findAllpsns(req,res);
+});
 
-    psns.route('/psns/:id')
-      .get(psnsCtrl.findById);
-//      .put(psnsCtrl.updatepsns)
-//      .delete(psnsCtrl.deletepsns);
+psns.post('/psns',function(req, res) {
+    psnsCtrl.addpsn(req, res);
+});
+
+//
+//    psns.route('/psns/:id')
+//      .get(psnsCtrl.findById);
+////      .put(psnsCtrl.updatepsns)
+////      .delete(psnsCtrl.deletepsns);
 
 
 app.use('/api', psns);
@@ -44,7 +50,7 @@ mongoose.connect(mongoDB, function(err, res) {
     }else {
         console.log('Connectado a la base de datos: '+ mongoDB);
     }
-//    app.listen(3000, function() {
-//          console.log("Escuchando en http://localhost:3000");
-//        });
+    app.listen(3000, function() {
+          console.log("Escuchando en http://localhost:3000");
+        });
       });
