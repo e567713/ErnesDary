@@ -35,6 +35,7 @@ exports.addpsn = function(req, res) {
         usd_vendido:  req.body.usd_vendido,
         lugar_comprado:  req.body.lugar_comprado,
         lugar_vendido:  req.body.lugar_vendido,
+        codigo:  req.body.codigo,
         ganancia: req.body.ganancia,
         valido:   req.body.valido,
         comprador:    req.body.comprador
